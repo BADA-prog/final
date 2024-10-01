@@ -1,0 +1,132 @@
+/* 歷史記錄區塊的容器 */
+.history-entry {
+    background-color: white;
+    /* 背景顏色設為白色 */
+    border-radius: 5px;
+    /* 圓角設置 */
+    padding: 20px;
+    /* 內邊距設置 */
+    margin-bottom: 30px;
+    /* 底部外邊距設置 */
+    max-width: 600px;
+    /* 最大寬度設置 */
+    margin: auto;
+    /* 水平居中 */
+    border-bottom: 3px solid #dbe6cee8;
+    /* 底線設置 */
+}
+
+/* 日期與時間的樣式 */
+.history-header {
+    text-align: left;
+    /* 文字對齊左側 */
+    margin-bottom: 10px;
+    /* 底部外邊距設置 */
+}
+
+.history-date {
+    font-size: 20px;
+    /* 字體大小設置 */
+    font-weight: bold;
+    /* 字體加粗 */
+    color: #333;
+    /* 字體顏色設置 */
+}
+
+.history-time {
+    font-size: 14px;
+    /* 字體大小設置 */
+    color: #666;
+    /* 字體顏色設置 */
+}
+
+/* 出發地與目的地的樣式 */
+.location-info {
+    display: flex;
+    /* 使用 flexbox 排版 */
+    flex-direction: column;
+    /* 垂直排列項目 */
+    margin-bottom: 15px;
+    /* 底部外邊距設置 */
+}
+
+.location-info .departure,
+.location-info .destination {
+    display: flex;
+    /* 使用 flexbox 排版 */
+    align-items: center;
+    /* 垂直對齊項目 */
+    margin-bottom: 10px;
+    /* 底部外邊距設置 */
+}
+
+.location-icon {
+    margin-right: 8px;
+    /* 右側內邊距設置 */
+    color: #6B8E42;
+    /* 顏色設置 */
+}
+
+.location-text {
+    font-size: 14px;
+    /* 字體大小設置 */
+    color: #333;
+    /* 字體顏色設置 */
+}
+
+/* 資訊卡片的樣式 */
+.info-card {
+    border: 2px dashed #6B8E42;
+    /* 虛線邊框設置 */
+    border-radius: 10px;
+    /* 圓角設置 */
+    padding: 15px;
+    /* 內邊距設置 */
+    text-align: center;
+    /* 文字居中 */
+}
+
+/* 將 .info-item 設為 flex 容器，並讓其子元素水平排列 */
+.info-item {
+    display: flex;
+    /* 使用 flexbox 排版 */
+    justify-content: space-between;
+    /* 左右分開對齊 */
+    align-items: center;
+    /* 垂直對齊項目 */
+    font-size: 14px;
+    /* 字體大小設置 */
+    color: #333;
+    /* 字體顏色設置 */
+}
+
+.amount {
+    font-size: 24px;
+    /* 字體大小設置 */
+    font-weight: bold;
+    /* 字體加粗 */
+    color: #333;
+    /* 字體顏色設置 */
+    margin-bottom: 10px;
+    /* 底部外邊距設置 */
+}
+
+.info-details {
+    display: flex;
+    /* 使用 flexbox 排版 */
+    flex-direction: column;
+    /* 垂直排列項目 */
+    gap: 5px;
+    /* 項目間距設置 */
+}
+
+.info-item {
+    display: flex;
+    /* 使用 flexbox 排版 */
+    justify-content: space-between;
+    /* 左右分開對齊 */
+    font-size: 14px;
+    /* 字體大小設置 */
+    color: #333;
+    /* 字體顏色設置 */
+}

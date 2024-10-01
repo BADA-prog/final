@@ -1,0 +1,94 @@
+/* 地图容器：让地图全屏显示 */
+#map {
+    height: calc(100vh - 65px);
+    /* 减去 65px 的高度，防止地图超出屏幕 */
+    width: 100vw;
+    position: absolute;
+    top: 65px;
+    /* 地图距离页面顶部 65px */
+    left: 0;
+    z-index: 1;
+}
+
+/* 信息框的整体样式 */
+.info-box {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    right: 10%;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* 信息框的背景颜色，略透明 */
+    border-radius: 15px;
+    /* 圆角边框 */
+    padding: 20px;
+    /* 内边距 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* 盒子阴影 */
+    z-index: 1000;
+    /* 确保信息框位于地图上方 */
+    text-align: center;
+    /* 内容居中 */
+}
+
+/* 日期时间区域 */
+.date-time {
+    border-bottom: 2px solid #6B8E42;
+    /* 设置底线颜色和宽度 */
+    padding-bottom: 10px;
+    /* 底部内边距，防止内容紧贴底线 */
+    margin-bottom: 10px;
+    /* 使底线和下一区域之间有间距 */
+}
+
+/* 位置资讯区域 */
+.location-info {
+    border-bottom: 2px solid #6B8E42;
+    /* 设置底线颜色和宽度 */
+    padding-bottom: 10px;
+    /* 底部内边距，防止内容紧贴底线 */
+    margin-bottom: 10px;
+    /* 使底线和下一区域之间有间距 */
+}
+
+/* 额外信息区域 */
+.additional-info form {
+    display: flex;
+    flex-direction: column;
+    /* 垂直排列项 */
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    /* 左右对齐 */
+    margin-bottom: 10px;
+    /* 每个项之间的间距 */
+}
+
+.info-item span:first-child {
+    font-weight: bold;
+    /* 使标签更突出 */
+}
+
+/* 历史按钮样式 */
+.history-btn {
+    position: absolute;
+    margin-top: 30px;
+    left: 10%;
+    right: 10%;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* 按钮背景颜色，略透明 */
+    border-radius: 15px;
+    /* 圆角边框 */
+    padding: 20px;
+    /* 内边距 */
+    z-index: 1000;
+    /* 确保按钮位于信息框上方 */
+}
+
+.history-btn:hover {
+    background-color: #6b8e42da;
+    /* 悬停时背景颜色变为绿色 */
+    color: white;
+    /* 文字颜色变为白色 */
+}

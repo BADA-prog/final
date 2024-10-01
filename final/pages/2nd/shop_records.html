@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/shop_style.css">
+    <link rel="stylesheet" href="../../pages/2nd/shop_home.html">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <title>Shop Records</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header styling */
+        header {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Styling for the back button */
+        .back-button {
+            font-size: 24px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        /* Title styling */
+        h1 {
+            margin: 0;
+            font-size: 20px;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        /* Divider line */
+        .divider {
+            height: 2px;
+            background-color: #ddd;
+            margin: 10px 0;
+        }
+
+        /* Tabs container styling */
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            background-color: #f9f9f9;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* Styling for the tab buttons */
+        .tab-button {
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .tab-button:hover {
+            color: #007BFF;
+        }
+
+        /* Profile Section */
+        .profile-section-r {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 8px; /* Reduced margin */
+            background-color: #e8f5e9;
+            padding: 15px;
+            justify-content: flex-start;
+            position: relative;
+        }
+
+        .profile-img-container-r {
+            position: absolute;
+            right: 40px; /* Move profile image to the right */
+        }
+
+        .profile-img-r {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .profile-buttons-r {
+            display: flex;
+            flex-direction: column;
+            margin-right: auto;
+            border-radius: 50px;
+        }
+
+        .profile-buttons-r .button-r {
+            background-color: white;
+            color: black;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            display: block;
+            width: 150px; /* or 120 */
+            margin-left: 15px;
+            border-radius: 50px;
+            border: 2px solid #4CAF50;
+            height: 10px;
+            line-height: 0.5;
+        }
+
+        .profile-buttons-r .button-r:hover {
+            background-color: #6B8E4E;
+        }
+
+        /* Status Section for Selling/Buying */
+        .status-section {
+            display: flex;
+            justify-content: center;
+            margin-top: 5px; /* Reduced margin */
+            font-size: 16px; /* Increased size slightly */
+        }
+
+        .status {
+            flex: 1;
+            text-align: center;
+            background-color: #e8f5e9;
+            padding: 8px 0;
+            cursor: pointer;
+            margin: 0 5px; /* Space between statuses */
+            white-space: nowrap; /* Prevent line break */
+        }
+
+        .status.active {
+            border-bottom: 2px solid #4CAF50; /* Active status indicator */
+            color: black;
+        }
+
+        .status.inactive {
+            color: black;
+        }
+
+        .product-content {
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            position: relative; /* Needed for absolute positioning if needed */
+        }
+
+        .three-dots-container {
+            position: absolute; /* Position it absolutely */
+            top: 10px; /* Adjust as necessary */
+            right: 10px; /* Adjust as necessary */
+            z-index: 1; /* Ensure it appears above other elements */
+        }
+
+        .product-buttons {
+            display: flex;
+            flex-direction: line;
+            border-radius: 50px;
+        }
+
+        .product-button {
+            background-color: white;
+            color: black;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            width: 120px;
+            margin-left: 20px;
+            border-radius: 50px;
+            border: 2px solid #4CAF50;
+            height: 10px;
+            line-height: 0.5;
+        }
+
+        .product-button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        .product-img-r {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #6B8E4E;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-right: 10px;
+            margin-top: 0px;
+            margin-bottom: 10px;
+        }
+
+        /* Hide elements initially */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header with back button and title -->
+    <header>
+        <div class="header-container">
+            <a href="shop_home.html"><i class="fa-solid fa-angle-left"></i></a>
+            <h1>RECORDS</h1>
+        </div>
+    </header>
+
+    <!-- Divider line below the header -->
+    <div class="divider"></div>
+
+    <!-- Tabs for ALL, SELL, BUY -->
+    <div class="tabs">
+        <button class="tab-button" onclick="showRecords('sell')">Record Sell</button>
+        <button class="tab-button" onclick="showRecords('buy')">Record Buy</button>
+    </div>
+
+    <!-- Profile Section -->
+    <div class="profile-section-r">
+        <div class="profile-buttons-r">
+            <a href="shop_myreview.html" class="button-r">My Review</a>
+            <a href="shop_post.html" class="button-r">Post</a>
+        </div>
+        <div class="profile-img-container-r">
+            <img id="profile-img-r" src="https://www.pngkey.com/png/full/202-2024792_profile-icon-png.png" alt="Profile Image" class="profile-img-r">
+        </div>
+    </div>
+
+    <!-- Record Buy -->
+    <div id="buyRecords" class="hidden">
+        <div class="status-section">
+            <div class="status active" id="buying" onclick="switchBuyTab('buying')">Buying</div>
+            <div class="status inactive" id="completed" onclick="switchBuyTab('completed')">Completed</div>
+        </div>
+
+        <div class="divider"></div>
+
+       <!-- Buying Products -->
+<div id="buyingRecords" class="product hidden">
+    <div class="product-content">
+        <div class="three-dots-container">
+            <div class="three-dots-icon">
+                &#x022EE; <!-- Unicode character for three dots -->
+            </div>
+            <div class="three-dots-options" id="threeDotsOptions">
+                <a href="#" class="three-dots-option">Delete</a>
+                <a href="#" class="three-dots-option">Modify</a>
+            </div>
+        </div>
+        <a href="product_detail.html?product=#" class="product-link">
+            <img src="https://www.books.com.tw/img/001/094/21/0010942143.jpg" alt="HTML Book" class="product-img-r">
+            <div class="product-info">
+                <div class="product-details">
+                    <div class="product-details-wrapper">
+                        <p>HTML book 二手.</p>
+                        <p>Zhongbei Rd.</p>
+                        <p>80 TWD.</p>
+                        <p class="added-time">1 day ago</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <div class="product-buttons">
+            <a href="#" class="product-button">View Booking</a>
+            <a href="#" class="product-button">Completed</a>
+        </div>
+    </div>
+</div>
+
+        <div id="completedRecords" class="product hidden">
+            <div class="product-content">
+                <div class="three-dots-container">
+                    <div class="three-dots-icon">
+                        &#x022EE; <!-- Unicode character for three dots -->
+                    </div>
+                    <div class="three-dots-options" id="threeDotsOptions">
+                        <a href="#" class="three-dots-option">Delete</a>
+                        <a href="#" class="three-dots-option">Modify</a>
+                    </div>
+                </div>
+                <a href="product_detail.html?product=#" class="product-link">
+                    <img src="https://www.books.com.tw/img/001/094/21/0010942143.jpg" alt="HTML Book" class="product-img-r">
+                    <div class="product-info">
+                        <div class="product-details">
+                            <div class="product-details-wrapper">
+                                <p>HTML book 二手.</p>
+                                <p>Zhongbei Rd.</p>
+                                <p>80 TWD.</p>
+                                <p class="added-time">1 hr ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="product-buttons">
+                    <a href="#" class="product-button">View Booking</a>
+                    <a href="shop_review.html" class="product-button">Give a review</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Record Sell -->
+    <div id="sellRecords" class="hidden">
+        <div class="status-section">
+            <div class="status active" id="selling" onclick="switchSellTab('selling')">Selling</div>
+            <div class="status inactive" id="soldOut" onclick="switchSellTab('soldOut')">Sold Out</div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Selling Products -->
+        <div id="sellingRecords" class="product hidden">
+            <div class="product-content">
+                <div class="three-dots-container">
+                    <div class="three-dots-icon">
+                        &#x022EE; <!-- Unicode character for three dots -->
+                    </div>
+                    <div class="three-dots-options" id="threeDotsOptions">
+                        <a href="#" class="three-dots-option">Delete</a>
+                        <a href="#" class="three-dots-option">Modify</a>
+                    </div>
+                </div>
+                <a href="product_detail.html?product=#" class="product-link">
+                    <img src="https://th.bing.com/th/id/OIP.3HEZPXh2ciiXxSAY4Xo7uQHaHa?rs=1&pid=ImgDetMain" alt="Python Book" class="product-img-r">
+                    <div class="product-info">
+                        <div class="product-details">
+                            <div class="product-details-wrapper">
+                                <p>Python Book.</p>
+                                <p>Xiangshan Rd.</p>
+                                <p>200 TWD.</p>
+                                <p class="added-time">1 days ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="product-buttons">
+                    <a href="#" class="product-button">View Booking</a>
+                    <a href="#" class="product-button">Sold out</a>
+                </div>
+            </div>
+        </div>
+    
+
+        <div id="soldOutRecords" class="product hidden">
+            <div class="product-content">
+                <div class="three-dots-container">
+                    <div class="three-dots-icon">
+                        &#x022EE; <!-- Unicode character for three dots -->
+                    </div>
+                    <div class="three-dots-options" id="threeDotsOptions">
+                        <a href="#" class="three-dots-option">Delete</a>
+                        <a href="#" class="three-dots-option">Modify</a>
+                    </div>
+                </div>
+                <a href="product_detail.html?product=#" class="product-link">
+                    <img src="https://th.bing.com/th/id/OIP.3HEZPXh2ciiXxSAY4Xo7uQHaHa?rs=1&pid=ImgDetMain" alt="Python Book" class="product-img-r">
+                    <div class="product-info">
+                        <div class="product-details">
+                            <div class="product-details-wrapper">
+                                <p>Python Book.</p>
+                                <p>Xiangshan Rd.</p>
+                                <p>200 TWD.</p>
+                                <p class="added-time">1 hr ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="product-buttons">
+                    <a href="#" class="product-button">View Booking</a>
+                    <a href="#" class="product-button">Repost</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/shop_home.js"></script>
+    <script>
+        function showRecords(type) {
+            const buyRecords = document.getElementById("buyRecords");
+            const sellRecords = document.getElementById("sellRecords");
+
+            if (type === "sell") {
+                sellRecords.style.display = "block";
+                buyRecords.style.display = "none";
+                switchSellTab('selling'); // Set to show selling by default when Record Sell is active
+            } else {
+                sellRecords.style.display = "none";
+                buyRecords.style.display = "block";
+                switchBuyTab('buying'); // Set to show buying by default when Record Buy is active
+            }
+        }
+
+        function switchBuyTab(tab) {
+            const buyingRecords = document.getElementById("buyingRecords");
+            const completedRecords = document.getElementById("completedRecords");
+            const buying = document.getElementById("buying");
+            const completed = document.getElementById("completed");
+
+            if (tab === "buying") {
+                buyingRecords.style.display = "block";
+                completedRecords.style.display = "none";
+                buying.classList.add("active");
+                completed.classList.remove("active");
+            } else {
+                buyingRecords.style.display = "none";
+                completedRecords.style.display = "block";
+                buying.classList.remove("active");
+                completed.classList.add("active");
+            }
+        }
+
+        function switchSellTab(tab) {
+            const sellingRecords = document.getElementById("sellingRecords");
+            const soldOutRecords = document.getElementById("soldOutRecords");
+            const selling = document.getElementById("selling");
+            const soldOut = document.getElementById("soldOut");
+
+            if (tab === "selling") {
+                sellingRecords.style.display = "block";
+                soldOutRecords.style.display = "none";
+                selling.classList.add("active");
+                soldOut.classList.remove("active");
+            } else {
+                sellingRecords.style.display = "none";
+                soldOutRecords.style.display = "block";
+                selling.classList.remove("active");
+                soldOut.classList.add("active");
+            }
+        }
+
+        // Initial state
+        showRecords('sell'); // Default to show Sell records
+    </script>
+</body>
+
+</html>

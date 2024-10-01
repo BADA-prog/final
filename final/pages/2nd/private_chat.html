@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Chat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* Header styling */
+        header {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        /* Styling for the back button */
+        .back-button {
+            font-size: 24px;
+            text-decoration: none;
+            color: #333;
+        }
+        /* Title styling */
+        h1 {
+            margin: 0;
+            font-size: 20px;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        /* Product container styling */
+        .product-container {
+            background-color: #f8f8f8;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Ensures the image is pushed to the right */
+        }
+
+        .product-image {
+            width: 50px; /* Adjust the width as needed */
+            height: 50px; /* Adjust the height as needed */
+            margin-left: 15px; /* Space between product info and image */
+        }
+
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1; /* Ensures the product info takes available space */
+        }
+
+        .product-name {
+            font-size: 18px; /* Adjust font size for product name */
+            font-weight: bold;      
+        }
+
+        .product-price {
+            font-size: 16px; /* Adjust font size for price */
+            color: #888; /* Price color */
+        }
+
+        #chat-messages {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .incoming {
+            background-color: white; 
+            align-self: flex-start;
+            border: 1px solid #6B8E4E;
+            border-radius: 10px;
+        }
+
+        .outgoing {
+            background-color: #e1f7d5;
+            align-self: flex-end;
+        }
+
+        .timestamp {
+            font-size: 0.8em;
+            color: #777;
+            margin-left: 10px; /* Space for incoming */
+            margin-right: 10px; /* Space for outgoing */
+            align-self: flex-end; /* Align timestamp at the bottom */
+        }
+
+        .input-container {
+            display: flex;
+            border-top: 1px solid #ddd;
+            padding: 10px;
+            background: #f8f8f8;
+        }
+
+        #message-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 15px;
+            background: #6B8E4E;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #6B8E4E;
+        }
+
+        .date-header {
+            font-weight: bold;
+            margin: 10px 0 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="shop_chats.html"><i class="fa-solid fa-angle-left"></i></a>
+            <h1>Chat with <span id="chat-user"></span></h1>
+            <span class="phone-icon" onclick="makeCall()">📞</span>
+        </div>
+    </header>
+
+    <!-- Product container -->
+<div class="product-container" id="product-container" onclick="goToProductDetail();">
+    <div class="product-info">
+        <div class="product-name">HTML Book 二手</div>
+        <div class="product-price">NTD80</div>
+    </div>
+    <img src="path-to-your-image.jpg" alt="Product Img" class="product-image">
+</div>
+
+
+    <div id="chat-messages"></div>
+
+    <div class="input-container">
+        <input type="text" id="message-input" placeholder="Type a message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        const chatMessages = {
+            'Lin': {
+                productId: 0,
+                messages: [
+                    { text: 'Hi, still available?', timestamp: '18:00', direction: 'incoming', date: 'yesterday' },
+                    { text: 'Yes, when are you available?', timestamp: '18:30', direction: 'outgoing' },
+                    { text: 'Tomorrow at 10?', timestamp: '18:40', direction: 'incoming' },
+                    { text: 'Ok', timestamp: '19:00', direction: 'outgoing' },
+                    { text: "Thank you! I'll use it well", timestamp: '11:45', direction: 'incoming', date: 'today' }
+                ]
+            },
+            'Zhang': {
+                productId: 3,
+                messages: [
+                    { text: 'Hi', timestamp: '20:00', direction: 'outgoing', date: 'yesterday' },
+                    { text: 'Is it still available?', timestamp: '20:00', direction: 'outgoing' },
+                    { text: 'Yes, let\'s meet up tomorrow', timestamp: '20:30', direction: 'incoming' },
+                    { text: 'Ok', timestamp: '21:00', direction: 'outgoing' },
+                    { text: 'Thank you', timestamp: '09:15', direction: 'incoming', date: 'today' }
+                ]
+            },
+            'Lee': {
+                productId: 1,
+                messages: []
+            },
+            'Chen': {
+                productId: 2,
+                messages: []
+            },
+            'Han': {
+                productId: 4,
+                messages: []
+            }
+        };
+    
+        function loadChat() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const userName = urlParams.get('user'); // Pastikan parameter ini sesuai
+            console.log("Loading chat for user:", userName); // Tambahkan log untuk debug
+            document.getElementById('chat-user').textContent = userName;
+
+            const messagesContainer = document.getElementById('chat-messages');
+            const messages = chatMessages[userName] ? chatMessages[userName].messages : [];
+
+            let lastDate = '';
+            messages.forEach(({ text, timestamp, direction, date }) => {
+                if (date && date !== lastDate) {
+                    const dateHeader = document.createElement('div');
+                    dateHeader.className = 'date-header';
+                    dateHeader.textContent = date.charAt(0).toUpperCase() + date.slice(1); // Capitalize first letter
+                    messagesContainer.appendChild(dateHeader);
+                    lastDate = date;
+                }
+
+                const messageElement = document.createElement('div');
+                messageElement.className = `chat-message ${direction}`;
+                messageElement.innerHTML = `
+                    <span class="text">${text}</span>
+                    <span class="timestamp">${timestamp}</span>
+                `;
+                messagesContainer.appendChild(messageElement);
+            });
+            messagesContainer.scrollTop = messagesContainer.scrollHeight; // Scroll ke bawah otomatis
+        }
+    
+        function sendMessage() {
+            const input = document.getElementById('message-input');
+            const messageText = input.value.trim();
+            if (messageText) {
+                const messageElement = document.createElement('div');
+                messageElement.className = 'chat-message outgoing';
+                const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                messageElement.innerHTML = `
+                    <span class="text">${messageText}</span>
+                    <span class="timestamp">${timestamp}</span>
+                `;
+                document.getElementById('chat-messages').appendChild(messageElement);
+                input.value = '';
+                document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight; // Scroll ke bawah otomatis
+            }
+        }
+    
+        function makeCall() {
+            alert("This is where you would initiate a call!");
+            // logika untuk melakukan panggilan
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    
+        window.onload = loadChat; // Pastikan ini dipanggil saat halaman dimuat
+    
+        // Tambahkan fokus ke input saat diklik
+        document.getElementById('message-input').addEventListener('click', function() {
+            this.focus();
+        });
+
+        function goToProductDetail() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const userName = urlParams.get('user');
+            const productId = chatMessages[userName].productId; // Ambil ID produk dari chatMessages
+            location.href = `product_detail.html?product=${productId}`;
+        }
+    </script>
+    
+</body>
+</html>

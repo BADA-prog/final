@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carbon-care</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap');
+  </style>
+  <link rel="stylesheet" href="css/top-style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/progress.css">
+
+</head>
+<body>
+  <header>
+    <div class="menu-bar" id="menuIcon">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+    <div class="logo">
+      <p class="playwrite-cu">
+        <a href="index.html">CarbonCare</a>
+      </p>    
+    </div>
+    
+    <div class="side">
+      <i class="fa-regular fa-heart"></i>
+      <i class="fa-regular fa-bell"></i>
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <a href="pages/setting/setting.html">
+        <i class="fa-solid fa-gear"></i>
+      </a>
+    </div>
+    
+    <nav class="side-menu" id="sideMenu">
+      <ul>
+        <li>prize</li>
+        <li>transport</li>
+        <li>carbon</li>
+        <li class="dropdown">
+          2nd-hand
+          <i class="fa-solid fa-chevron-down dropdown-icon"></i> <!-- 아이콘 추가 -->
+          <ul class="dropdown-menu">
+            <li><a href="#">Record Buyer</a></li>
+            <li><a href="#">Record Seller</a></li>
+          </ul>
+        </li>
+        <li>activity</li>
+      </ul>
+    </nav>
+    
+  
+    <div class="overlay" id="overlay"></div> 
+    <script src="js/sidebar.js"></script>
+  </header>
+  <main>
+    <div class="image-container">
+      <div class="coin">
+        <img src="img/icon/prize.png" >
+        <span style="color:whitesmoke">10</span>
+      </div>
+      
+      
+      <img src="img/characters/rose1.png" alt="character" id="user-character">
+      
+      
+      
+      <div class="progress-container">
+        <div class="progress-wrapper">
+          <progress class="progress" id="progress" value="70" min="0" max="100"></progress>
+          <img src="img/icon/sunny.png" alt="icon" class="progress-icon">
+        </div>
+        <span class="progress-text">70/100</span> 
+      </div>
+    </div>
+    
+
+
+    <div class="container">
+
+      <div class="box">
+        <a href="prize.html">
+          <div class="left"><img src="img/icon/prize.png" alt="prize"></div>
+          <div class="right"><span>PRIZE</span></div>
+        </a>
+      </div>
+
+      <div class="box">
+        <a href="transportation.html">
+          <div class="left"><img src="img/icon/transportation.png" alt="transportation"></div>
+          <div class="right"><span>TRANSPORTATION</span></div>
+        </a>
+      </div>
+
+      <div class="box">
+        <a href="carbon.html">
+          <div class="left"><img src="img/icon/carbon.png" alt="carbon"></div>
+          <div class="right"><span>CARBON FOOTPRINT</span></div>
+        </a>
+      </div>
+
+      <div class="box">
+        <a href="pages/2nd/shop_home.html">
+          <div class="left"><img src="img/icon/2nd-hand.png" alt="2nd-hand"></div>
+          <div class="right"><span>2ND HAND</span></div>
+        </a>
+      </div>
+
+
+      <div class="box">
+        <a href="#">
+          <div class="left"><img src="img/icon/activity.png" alt="activity"></div>
+          <div class="right"><span>ACTIVITY ZONE</span></div>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+</body>
+</html>

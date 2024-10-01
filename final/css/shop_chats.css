@@ -1,0 +1,108 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styling */
+header {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Styling for the back button */
+.back-button {
+    font-size: 24px;
+    text-decoration: none;
+    color: #333;
+}
+
+/* Title styling */
+h1 {
+    margin: 0;
+    font-size: 20px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+/* Divider line */
+.divider {
+    height: 2px;
+    background-color: #ddd;
+    margin: 10px 0;
+}
+
+/* Tabs container styling */
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    background-color: #f9f9f9;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Styling for the tab buttons */
+.tab-button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #333;
+}
+
+.tab-button:hover {
+    color: #007BFF;
+}
+
+/* Chat container */
+#chat-container {
+    padding: 20px;
+}
+
+/* Hide chat sections by default */
+.chat-content {
+    display: none;
+}
+
+/* Chat item styling (each individual chat) */
+.chat-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Profile picture styling */
+.profile-picture {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Chat info (name, message, time) */
+.chat-info {
+    flex-grow: 1;
+}
+
+.chat-info h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.chat-info p {
+    margin: 5px 0 0;
+    color: #666;
+}
+
+.chat-info span {
+    font-size: 12px;
+}

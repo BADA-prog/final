@@ -1,0 +1,226 @@
+.body {
+    margin: 0;
+    /* 清除外邊距 */
+    display: flex;
+    /* 使用 Flexbox 布局 */
+    align-items: center;
+    /* 垂直居中對齊內容 */
+    justify-content: center;
+    /* 水平居中對齊內容 */
+    margin-top: 15%;
+    /* 設置上邊距為 15% */
+}
+
+/* 按鈕容器的樣式 */
+.button-container {
+    text-align: center;
+    /* 使容器內的文本和按鈕水平居中 */
+}
+
+/* 按鈕的基本樣式 */
+button {
+    background-color: white;
+    /* 背景顏色為白色 */
+    border: 2px solid #6B8E42;
+    /* 邊框顏色為綠色 */
+    color: #6B8E42;
+    /* 文字顏色為綠色 */
+    font-size: 16px;
+    /* 字體大小為 16px */
+    padding: 10px 50px;
+    /* 設置內邊距，垂直 10px，水平 50px */
+    margin: 30% 0;
+    /* 垂直外邊距為 30% */
+    border-radius: 10px;
+    /* 圓角半徑為 10px */
+    cursor: pointer;
+    /* 鼠標樣式為指針 */
+    transition: background-color 0.3s, color 0.3s;
+    /* 背景顏色和文字顏色的過渡效果 */
+    display: block;
+    /* 設置顯示為塊級元素 */
+    width: 100%;
+    /* 設置寬度為 100% */
+}
+
+/* 當鼠標懸停在按鈕上時的樣式 */
+button:hover {
+    background-color: #6B8E42;
+    /* 背景顏色變為綠色 */
+    color: white;
+    /* 文字顏色變為白色 */
+}
+
+/* 下拉菜單的基本樣式 */
+.booking-dropdown {
+    display: none;
+    /* 默認隱藏下拉菜單 */
+    position: absolute;
+    /* 設置為絕對定位 */
+    background: #fff;
+    /* 背景顏色為白色 */
+    border: 1px solid #ccc;
+    /* 邊框顏色為灰色 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* 陰影效果 */
+    text-align: left;
+    /* 文本對齊方式為左對齊 */
+    width: 100%;
+    /* 設置寬度為 100% */
+    max-width: 100%;
+    /* 設置最大寬度為 100% */
+    top: 100%;
+    /* 設置距離父容器頂部為 100%，即顯示在按鈕下方 */
+    left: 0;
+    /* 設置距離父容器左側為 0 */
+    border-radius: 10px;
+    /* 圓角半徑為 10px */
+}
+
+/* 下拉菜單內鏈接的基本樣式 */
+.booking-dropdown a {
+    display: block;
+    /* 設置為塊級元素 */
+    padding: 10px;
+    /* 內邊距為 10px */
+    color: #6B8E42;
+    /* 文字顏色為綠色 */
+    text-decoration: none;
+    /* 移除下劃線 */
+    border-bottom: 1px solid #ccc;
+    /* 底部邊框為灰色 */
+}
+
+/* 去掉下拉菜單最後一項的底部邊框 */
+.booking-dropdown a:last-child {
+    border-bottom: none;
+    /* 無底部邊框 */
+}
+
+/* 下拉菜單鏈接在鼠標懸停時的樣式 */
+.booking-dropdown a:hover {
+    background-color: #f0f0f0;
+    /* 背景顏色變為淡灰色 */
+}
+
+/* 下拉菜單容器的樣式 */
+.booking-container {
+    position: relative;
+    /* 設置為相對定位，以便下拉菜單可以正確定位 */
+}
+
+/* 彈出窗口的基本樣式 */
+.query-popup {
+    display: none;
+    /* 默認隱藏彈出窗口 */
+    position: fixed;
+    /* 設置為固定定位 */
+    top: 0;
+    /* 設置距離頂部為 0 */
+    left: 0;
+    /* 設置距離左側為 0 */
+    width: 100%;
+    /* 設置寬度為 100% */
+    height: 100%;
+    /* 設置高度為 100% */
+    background: rgba(0, 0, 0, 0.5);
+    /* 背景顏色為半透明黑色 */
+    align-items: center;
+    /* 垂直居中對齊內容 */
+    justify-content: center;
+    /* 水平居中對齊內容 */
+    z-index: 1000;
+    /* 設置層級，確保在最上層 */
+}
+
+/* 彈出窗口內容的基本樣式 */
+.popup-content {
+    background: white;
+    /* 背景顏色為白色 */
+    padding: 20px;
+    /* 內邊距為 20px */
+    border-radius: 10px;
+    /* 圓角半徑為 10px */
+    width: 80%;
+    /* 設置寬度為 80% */
+    max-width: 60%;
+    /* 設置最大寬度為 60% */
+    position: relative;
+    /* 設置為相對定位，以便關閉按鈕的絕對定位 */
+}
+
+/* 關閉按鈕的樣式 */
+.close-btn {
+    position: absolute;
+    /* 設置為絕對定位 */
+    top: 10px;
+    /* 距離頂部 10px */
+    right: 10px;
+    /* 距離右側 10px */
+    font-size: 24px;
+    /* 字體大小為 24px */
+    cursor: pointer;
+    /* 鼠標樣式為指針 */
+}
+
+/* 表單的基本樣式 */
+form {
+    display: flex;
+    /* 使用 Flexbox 布局 */
+    flex-direction: column;
+    /* 垂直排列內部元素 */
+}
+
+/* 表單標籤的樣式 */
+label {
+    font-size: 16px;
+    /* 字體大小為 16px */
+    margin-bottom: 5px;
+    /* 底部間距為 5px */
+    margin-top: 30px;
+    /* 上部間距為 30px */
+}
+
+/* 文本輸入框的基本樣式 */
+input[type="text"] {
+    width: 100%;
+    /* 設置寬度為 100% */
+    padding: 10px;
+    /* 內邊距為 10px */
+    margin-bottom: 15px;
+    /* 底部間距為 15px */
+    border: 1px solid #ccc;
+    /* 邊框顏色為灰色 */
+    border-radius: 5px;
+    /* 圓角半徑為 5px */
+    box-sizing: border-box;
+    /* 包含邊框和內邊距在總寬度內 */
+}
+
+/* 提交按鈕的基本樣式 */
+button[type="submit"] {
+    background-color: #6B8E42;
+    /* 背景顏色為綠色 */
+    border: none;
+    /* 無邊框 */
+    color: white;
+    /* 文字顏色為白色 */
+    font-size: 16px;
+    /* 字體大小為 16px */
+    padding: 10px;
+    /* 內邊距為 10px */
+    border-radius: 5px;
+    /* 圓角半徑為 5px */
+    cursor: pointer;
+    /* 鼠標樣式為指針 */
+    transition: background-color 0.3s;
+    /* 背景顏色的過渡效果 */
+    width: 100%;
+    /* 設置寬度為 100% */
+}
+
+/* 提交按鈕在鼠標懸停時的樣式 */
+button[type="submit"]:hover {
+    background-color: #5a7b3f;
+    /* 背景顏色變為稍深的綠色 */
+}

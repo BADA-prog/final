@@ -1,0 +1,139 @@
+@media screen and (max-width: 800px) {
+  body,*{
+    margin: 0px auto;
+  }
+  header {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    background: linear-gradient(to bottom right, #6B8E42, #D4E2A4);
+    width: 100%; 
+    box-sizing: border-box; 
+    padding: 15px;
+  }
+  
+  header > div {
+    display: flex; 
+    align-items: center; 
+    
+  }
+  .logo a , .side i {
+    color: black;
+    text-decoration: none; }
+
+ 
+
+  .fa-solid,fa-regular {
+    font-size: 15px; 
+  }
+ 
+  .menu-bar {
+    margin-right: 20px;
+  }
+  .menu-bar i:active {
+    transform: scale(0.95); 
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5); 
+    border-radius: 50%;
+  }
+  
+  .logo {
+    flex-grow: 1; 
+    text-align: center;
+  }
+  
+  .side {
+    display: flex;
+    gap: 10px; 
+  }
+  
+  .side i {
+    font-size: 20px; 
+  }
+  
+.playwrite-cu {
+  font-family: "Playwrite CU", cursive;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -250px; 
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  color: white;
+  padding-top: 60px;
+  transition: 0.3s;
+  z-index: 1000;
+}
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.side-menu ul li {
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #555;
+  cursor: pointer;
+}
+
+.side-menu .dropdown-menu {
+  display: none;  /* 처음에는 숨김 */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: #444;
+}
+
+.side-menu .dropdown-menu li {
+  padding: 10px;
+  border-bottom: 1px solid #666;
+}
+
+.side-menu .dropdown-menu li a {
+  color: white;
+  text-decoration: none;
+}
+
+.side-menu .dropdown-menu li a:hover {
+  text-decoration: underline;
+}
+
+.side-menu .dropdown.open .dropdown-menu {
+  display: block;  /* 드롭다운이 열리면 표시 */
+}
+
+.dropdown-icon {
+  margin-left: 10px; /* 아이콘과 텍스트 간격 */
+  font-size: 14px;
+  cursor: pointer;
+  position: absolute;
+  right: 20px; /* 오른쪽으로 아이콘 배치 */
+}
+
+
+.side-menu .dropdown.open .dropdown-icon {
+  transform: rotate(180deg); /* 드롭다운이 열리면 아이콘을 회전 */
+}
+.side-menu.open {
+  left: 0; 
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none; 
+  z-index: 1; 
+}
+
+.overlay.active {
+  display: block;
+}
+}

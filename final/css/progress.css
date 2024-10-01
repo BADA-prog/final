@@ -1,0 +1,90 @@
+
+.image-container {
+  width: 100%;
+  height: 300px;
+  background: url(https://images.pexels.com/photos/186230/pexels-photo-186230.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+  background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.progress-wrapper {
+  position: relative;
+  margin-right: 35px; /* 프로그레스 바와 텍스트 사이의 간격 조정 */
+}
+
+.progress {
+  width: 300px;
+  height: 25px;
+  background: transparent; 
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.5); 
+  position: relative;
+  overflow: hidden; 
+}
+
+.progress::-webkit-progress-bar {
+  background: transparent; 
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.5); 
+}
+
+.progress::-webkit-progress-value {
+  background-image: linear-gradient(to right, #00f, #00aaff); 
+  border-radius: 12px;
+  animation: wave 3s infinite; 
+}
+
+@keyframes wave {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+.progress-icon {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 2px solid yellow;
+  border-radius: 50%;
+  background: white;
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 45%;
+  right: 0%;
+  transform: translateY(-50%);
+  animation: none !important;
+}
+
+.progress-icon img {
+  width: 20px;
+  height: auto;
+  animation: none !important;
+ 
+}
+.progress-text {
+  color: whitesmoke; 
+  font-size: 14px; 
+  margin-left: 10px; 
+  position: absolute;
+  bottom: -3px; 
+  right: 70px; 
+}

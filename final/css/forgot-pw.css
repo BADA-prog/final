@@ -1,0 +1,63 @@
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    margin: 20px;
+    align-items: center; 
+    justify-content: center;
+}
+
+.form-input {
+    padding: 20px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+  width: 100%;
+  padding: 10px 20px;
+  background-color: hsla(0, 8%, 95%, 0.957);
+  color: black;
+  font-style: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.icon-button {
+  display: flex;
+  align-items: center;
+  font-size: 18px; padding: 10px;
+  justify-content: center; 
+  margin: 20px 0; 
+}
+
+.icon-button i {
+  font-size: 20px; 
+  color: #001A72; 
+  margin-right: 20px;
+}
+
+.vertification-button button{
+padding: 8px 16px; /* 버튼의 패딩을 줄임 */
+font-size: 16px; /* 버튼의 글자 크기를 조정 */
+margin-top: 10px; /* 버튼과 입력 필드 사이의 간격을 조정 */
+}
+
+.label-email {
+margin-bottom: 5px; /* 라벨과 입력 필드 사이의 간격 */
+margin-top: 15px; /* 라벨을 아래로 내림 */
+}

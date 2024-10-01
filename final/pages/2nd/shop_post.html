@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post My Product</title>
+    <link rel="stylesheet" href="../../css/shop_post.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="shop_home.html"><i class="fa-solid fa-xmark"></i></a>
+            <h1>POST MY PRODUCT</h1>
+        </div>
+    </header>
+    <main>
+       <div class="upload-container" id="upload-container">
+        <i class="fas fa-camera"></i>
+        <!--<span class="photo-count">0/10</span>-->
+    </div>
+    <input type="file" id="upload-photo" multiple accept="image/*" style="display: none;">
+    
+    <div class="image-preview-container" id="image-preview-container">
+        <!-- Preview images will be inserted here -->
+    </div>
+    <div class="add-box" id="add-box">
+        <i class="fas fa-plus"></i>
+    </div>
+    
+        <div class="form-container">
+            <label for="title">TITLE</label>
+            <input type="text" id="title" placeholder="Please enter the correct name for the product">
+            
+            <label for="price">PRICE</label>
+            <input type="text" id="price" placeholder="TWD">
+            
+            <div class="free-option">
+                <input type="checkbox" id="free">
+                <label for="free" style="color: #6B8E4E;">JUST SHARING</label>
+            </div>
+            
+            <label for="description">DESCRIPTION</label>
+            <textarea id="description" placeholder="Please write the detailed description for your product"></textarea>
+            
+            <button id="post-button">POST</button>
+        </div>
+    </main>
+    <script>
+        const uploadContainer = document.querySelector('#upload-container');
+        const uploadPhoto = document.querySelector('#upload-photo');
+        const imagePreviewContainer = document.querySelector('#image-preview-container');
+        const addBox = document.querySelector('#add-box');
+
+        // Click event for the camera icon
+        uploadContainer.addEventListener('click', function() {
+            uploadPhoto.click();
+        });
+
+        // Handle file selection
+        uploadPhoto.addEventListener('change', function(event) {
+            const files = event.target.files;
+            
+            // Iterate over the selected files
+            Array.from(files).forEach(file => {
+                if (file && file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const imageBox = document.createElement('div');
+                        imageBox.classList.add('image-box');
+                        
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+
+                        const removeIcon = document.createElement('i');
+                        removeIcon.className = 'fas fa-times remove-icon';
+                        removeIcon.onclick = function() {
+                            imageBox.remove(); // Remove the image box when the cross is clicked
+                            updateAddBoxVisibility(); // Update visibility of the add box
+                            updateUploadContainerVisibility(); // Update visibility of the camera icon
+                        };
+
+                        imageBox.appendChild(img);
+                        imageBox.appendChild(removeIcon);
+                        imagePreviewContainer.appendChild(imageBox);
+                        updateAddBoxVisibility(); // Update visibility of the add box after adding new images
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            // Hide camera icon if files are selected
+            uploadContainer.style.display = 'none';
+        });
+
+        // Click event for the add box
+        addBox.addEventListener('click', function() {
+            uploadPhoto.click();
+        });
+
+        // Function to update the visibility of the add box
+        function updateAddBoxVisibility() {
+            const images = imagePreviewContainer.querySelectorAll('.image-box');
+            if (images.length > 0 && images.length < 10) {
+                addBox.style.display = 'flex'; // Show add box if there are images and less than 10
+            } else {
+                addBox.style.display = 'none'; // Hide add box if no images or 10 images
+            }
+        }
+
+        // Function to update the visibility of the camera icon container
+        function updateUploadContainerVisibility() {
+            const images = imagePreviewContainer.querySelectorAll('.image-box');
+            if (images.length === 0) {
+                uploadContainer.style.display = 'flex'; // Show camera icon if no images
+            }
+        }
+
+        // Initial check to update visibility
+        updateAddBoxVisibility();
+        updateUploadContainerVisibility();
+    </script>
+</body>
+</html>

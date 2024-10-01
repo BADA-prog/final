@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHATS</title>
+    <link rel="stylesheet" href="../../css/shop_chats.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header with back button and title -->
+    <header>
+        <div class="header-container">
+           <!-- <a href="shop_home.html" class="back-button">❮</a>-->
+           <a href="shop_home.html"><i class="fa-solid fa-angle-left"></i></a>
+            <h1>CHATS</h1>
+        </div>
+    </header>
+
+    <!-- Divider line below the header -->
+    <div class="divider"></div>
+
+    <!-- Tabs for ALL, SELL, BUY -->
+    <div class="tabs">
+        <button class="tab-button" onclick="showChats('all')">ALL</button>
+        <button class="tab-button" onclick="showChats('sell')">SELL</button>
+        <button class="tab-button" onclick="showChats('buy')">BUY</button>
+    </div>
+
+    <!-- Chat content container -->
+    <div id="chat-container">
+        <!-- ALL Chat content -->
+        <div class="chat-content" id="all">
+            <div class="chat-item" onclick="openChatRoom('Lin')">
+                <img src="https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" alt="Profile" class="profile-picture">
+                <div class="chat-info">
+                    <h2>Lin</h2>
+                    <p>Thank you, i'll use it well</p>
+                    <span>11:45 AM</span>
+                </div>
+            </div>
+                <div class="chat-item" onclick="openChatRoom('Zhang')">
+                    <img src="https://www.bing.com/th?id=OIP.ir4fVRiU-txxn_-Om98QkwHaHl&w=146&h=149&c=8&rs=1&qlt=90&r=0&o=6&dpr=1.1&pid=3.1&rm=2" alt="Profile" class="profile-picture">
+                    <div class="chat-info">
+                        <h2>Zhang</h2>
+                        <p>Thankyou</p>
+                        <span>09:15 AM</span>
+                    </div>
+                </div>
+        </div>
+
+        <!-- SELL Chat content -->
+        <div class="chat-content" id="sell" style="display: none;">
+            <div class="chat-item"onclick="openChatRoom('Lin')">
+                <img src="https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" alt="Profile" class="profile-picture">
+                <div class="chat-info">
+                    <h2>Lin</h2>
+                    <p>Thank you, i'll use it well</p>
+                    <span>11:45 AM</span>
+                </div>
+            </div>
+            <!-- Add more chats as needed -->
+        </div>
+
+        <!-- BUY Chat content -->
+        <div class="chat-content" id="buy" style="display: none;">
+            <div class="chat-item"onclick="openChatRoom('Zhang')">
+                <img src="https://www.bing.com/th?id=OIP.ir4fVRiU-txxn_-Om98QkwHaHl&w=146&h=149&c=8&rs=1&qlt=90&r=0&o=6&dpr=1.1&pid=3.1&rm=2" alt="Profile" class="profile-picture">
+                <div class="chat-info">
+                    <h2>Zhang</h2>
+                    <p>Thankyou</p>
+                    <span>09:15 AM</span>
+                </div>
+            </div>
+            <!-- Add more chats as needed -->
+        </div>
+    </div>
+    <!-- Chat room section (hidden by default) -->
+    <div id="chat-room" style="display: none;">
+        <div class="chat-room-header">
+            <button class="back-button" onclick="backToChats()">❮ Back</button>
+            <h2 id="chat-room-title"></h2>
+        </div>
+        <div class="chat-room-content">
+            <!-- Chat messages would go here -->
+            <p>This is the chat room for <span id="chat-room-user"></span>.</p>
+        </div>
+    </div>
+
+    <!-- JavaScript function to switch between chat categories -->
+     <!-- JavaScript to handle chat switching and room functionality -->
+     <script>
+        // Function to show chats based on the tab clicked
+        function showChats(chatType) {
+            // Hide all chat sections
+            document.getElementById('all').style.display = 'none';
+            document.getElementById('sell').style.display = 'none';
+            document.getElementById('buy').style.display = 'none';
+
+            // Display the selected chat section
+            document.getElementById(chatType).style.display = 'block';
+        }
+
+        // Automatically show the "ALL" chat section when the page loads
+        window.onload = function() {
+            showChats('all');  // Show the "ALL" tab by default
+        };
+
+        function openChatRoom(userName) {
+    window.location.href = `private_chat.html?user=${encodeURIComponent(userName)}`;
+}
+
+    </script>
+    </script>
+</body>
+</html>

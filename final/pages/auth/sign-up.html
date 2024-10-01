@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/sign-up.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="../../js/location.js"></script>
+  <script src="../../js/e-mail.js"></script>
+  <title>Multi-Step Form</title>
+  <script src="../../js/sign-up.js"></script>
+</head>
+<body onload="getEmailFromUrl()">
+  <div class="container">
+    
+    <form id="multiStepForm" action="#" method="post"> 
+      <!-- 1page: ID, Password, Nickname -->
+
+      <div id="page1">
+        <h1>Sign UP</h1>
+        <p>Create account and save the earth!</p>
+    
+  
+        <label for="id">ID</label>
+        <input type="text" id="id" name="id" placeholder="Please input your phone number ;)" required>
+        <div class="error-message" id="id-error"></div> 
+
+        
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Please input at least 6 words" required>
+        <div class="error-message" id="password-error"></div> 
+
+        
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+        <div class="error-message" id="confirmPassword-error"></div> 
+
+        
+        <label for="nickname">Nickname</label>
+        <input type="text" id="nickname" name="nickname" required>
+        <div class="error-message" id="nickname-error"></div> 
+        
+
+        <div class="direction">
+          <div class="right">
+            <button type="button" onclick="nextPage('page1')"><i class="fa-solid fa-angle-right"></i></button>
+          </div>
+        </div>
+
+
+      </div>
+    
+
+      <!-- 2page: Address -->
+      <div id="page2" style="display:none;">
+        <h1>Sign UP</h1>
+        <p>Create account and save the earth!</p>
+    
+        <div>
+            <p class="category">Current Location</p>
+            <i class="fa-solid fa-location-crosshairs" onclick="getCurrentLocation()" style="cursor: pointer; width: 20px;"></i>
+            <span id="location-display" style="margin-left: 10px;">Location will appear here</span>
+        </div>
+    
+        <label for="city" class="category">Select City</label>
+        <div style="display: inline-block;">
+            <div id="city-error" class="error-message" style="color: red; display: none;">* 필수 입력란입니다.</div>
+        </div>
+        <select id="city" class="form-input" onchange="updateDistricts()" required>
+            <option value="" disabled selected>Select a city</option>
+            <option value="Taipei City">Taipei City</option>
+            <option value="New Taipei City">New Taipei City</option>
+            <option value="Taoyuan City">Taoyuan City</option>
+            <option value="Kaohsiung City">Kaohsiung City</option>
+            <option value="Taichung City">Taichung City</option>
+        </select>
+    
+        <!-- District Selection -->
+        <label for="district" class="category">Select District</label>
+        <div style="display: inline-block;">
+            <div id="district-error" class="error-message" style=" display: none;">*necessary ! </div>
+        </div>
+        <select id="district" class="form-input" required>
+            <option value="" disabled selected>Select a district</option>
+        </select>
+        <div id="district-error" class="error-message" style="display: none;">*necessary ! </div>
+    
+        <label for="additional-address" class="category">Additional Addressss&nbsp;<small>(optional)</small>
+
+        </label>
+        <input type="text" id="additional-address" class="form-input" placeholder="Enter additional address">
+        
+    
+        <input type="hidden" id="full-address" name="full-address">
+    
+
+
+        <div class="direction">
+          <div class="left"><button type="button" onclick="prevPage('page2')"><i class="fa-solid fa-angle-left"></i></button></div>
+          <div class="right">
+            <button type="button" onclick="nextPage('page2')"><i class="fa-solid fa-angle-right"></i></button>
+          </div>
+        </div>
+      </div>
+    
+    
+      
+        
+
+      <!-- 3page: E-mail -->
+      <div id="page3" style="display:none;">
+        <h1>Sign UP</h1>
+        <p>Create account and save the earth!</p>
+    
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+    
+        
+        <div class="direction">
+          <div class="left"> <button type="button" onclick="prevPage('page3')"><i class="fa-solid fa-angle-left"></i></button></div>
+          <div class="right">
+            <button type="button" onclick="nextPageWithEmail('page3')"><i class="fa-solid fa-angle-right"></i></button>
+          </div>
+        </div>
+      </div>
+    
+
+
+
+
+      <!-- 4page: Confirm E-mail -->
+      <div id="page4" style="display:none; text-align: center;"  >
+        <h1>Verification</h1>
+        <p>Please check your e-mail ;)</p>
+    
+        <div id="email-display" style="font-weight: bold;"></div>
+        <p id="timer-display"></p>
+
+
+        <div class="code">
+          <label for="verification-code-1"></label>
+          <input type="text" id="verification-code-1" class="form-input" maxlength="1" required>
+          <input type="text" id="verification-code-2" class="form-input" maxlength="1" required>
+          <input type="text" id="verification-code-3" class="form-input" maxlength="1" required>
+          <input type="text" id="verification-code-4" class="form-input" maxlength="1" required>
+        </div>
+      
+    
+        <div class="exception" onclick="resendCode();">
+          <p>Doesn't receive a code? &nbsp;&nbsp; <span style="color: seagreen; font-weight: bold;">RESEND</span></p>
+        </div>
+        <a href="add-card1.html"><i class="fa-solid fa-cat" style="width: 10px;"></i></a>
+        <div class="direction">
+          <div class="left"><button type="button" onclick="prevPage('page4')"><i class="fa-solid fa-angle-left"></i></button></div>
+          <div class="right">
+            <button type="button" onclick="verifyCode()"><i class="fa-solid fa-angle-right"></i></button>
+          </div>
+          
+        </div>
+
+
+        
+          
+
+       
+
+      </div>
+    
+    </form>
+  </div>
+</body>
+</html>

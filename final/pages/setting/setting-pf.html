@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="../../css/setting-pf.css">
+    <script src="../../js/setting-photo.js"></script>
+    <script src="../../js/setting-name.js"></script>
+    <style>
+        *{
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="setting.html"><i class="fa-solid fa-angle-left"></i></a>
+            <h3>MY PROFILE</h3>
+        </div>
+        <hr class="custom-hr">
+    </header>
+
+    <main>
+        <div class="character">
+            <img src="../../img/characters/rose1.png" alt="Character" id="user-character"> <!-- ID 추가 -->
+            <div class="photo-fix" id="photo-fix">
+                <i class="fa-solid fa-camera"></i>
+                <div class="dropdown-menu" id="dropdown-menu" style="display: none;">
+                    <ul>
+                        <li id="select-album">Select in Album</li>
+                        <li id="select-avatar">Select Avatar</li>
+                        <li id="delete-photo">Delete Photo</li>
+                        <li id="cancel">Cancel</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <!-- 드롭다운 메뉴 -->
+       
+        
+
+        <div class="profile-section">
+            <div class="nickname-section">
+                <div class="category">Nick Name</div>
+                <span class="nickname" id="nickname-display" onclick="editNickname()">CHOCHO <i class="fa-solid fa-angle-right"></i></span>
+            </div>
+        
+            <div class="edit-container" id="edit-container" style="display: none;">
+                <div class="header">
+                    <button class="button" onclick="cancelEdit()">Back</button>
+                    <span>Edit Nickname</span>
+                    <button class="button" onclick="confirmEdit()">Confirm</button>
+                </div>
+                <input type="text" class="nickname-input" id="nickname-input" placeholder="Enter your nickname" maxlength="20" oninput="updateCharCount(this)" />
+                <div class="char-count">0 / 20</div>
+            </div>
+        </div>
+        
+        <div class="phone-section">
+            <div class="category">Cell Phone</div>
+            <span class="phone" id="phone-display" onclick="editPhone()">09791234567 <i class="fa-solid fa-angle-right"></i></span>
+        </div>
+        
+        <div class="edit-container" id="edit-phone-container" style="display: none;">
+            <div class="header">
+                <button class="button" onclick="cancelEditPhone()">Back</button>
+                <span>Edit Cell Phone</span>
+                <button class="button" onclick="confirmEditPhone()">Confirm</button>
+            </div>
+            <input type="text" class="phone-input" id="phone-input" placeholder="Enter your phone number" maxlength="15" oninput="updatePhoneCharCount(this)" />
+            <div class="phone-char-count">0 / 15</div>
+        </div>
+        
+        <div class="email-section">
+            <div class="category">E-Mail</div>
+            <span class="email" id="email-display" onclick="editEmail()">email123@gmail.com <i class="fa-solid fa-angle-right"></i></span>
+        </div>
+        
+        <div class="edit-container" id="edit-email-container" style="display: none;">
+            <div class="header">
+                <button class="button" onclick="cancelEditEmail()">Back</button>
+                <span>Edit E-Mail</span>
+                <button class="button" onclick="confirmEditEmail()">Confirm</button>
+            </div>
+            <input type="text" class="email-input" id="email-input" placeholder="Enter your email" maxlength="30" />
+        </div>
+        
+        
+        
+    </main>
+
+
+
+
+    
+</body>
+</html>

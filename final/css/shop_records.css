@@ -1,0 +1,209 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styling */
+header {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Styling for the back button */
+.back-button {
+    font-size: 24px;
+    text-decoration: none;
+    color: #333;
+}
+
+/* Title styling */
+h1 {
+    margin: 0;
+    font-size: 20px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+/* Divider line */
+.divider {
+    height: 2px;
+    background-color: #ddd;
+    margin: 10px 0;
+}
+
+/* Tabs container styling */
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    background-color: #f9f9f9;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Styling for the tab buttons */
+.tab-button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #333;
+}
+
+.tab-button:hover {
+    color: #007BFF;
+}
+
+/* Profile Section */
+.profile-section-r {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 8px;
+    /* Reduced margin */
+    background-color: #e8f5e9;
+    padding: 15px;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.profile-img-container-r {
+    position: absolute;
+    right: 40px;
+    /* Move profile image to the right */
+}
+
+.profile-img-r {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-buttons-r {
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    border-radius: 50px;
+}
+
+.profile-buttons-r .button-r {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+    width: 150px;
+    /* or 120 */
+    margin-left: 15px;
+    border-radius: 50px;
+    border: 2px solid #4CAF50;
+    height: 10px;
+    line-height: 0.5;
+}
+
+.profile-buttons-r .button-r:hover {
+    background-color: #6B8E4E;
+}
+
+/* Status Section for Selling/Buying */
+.status-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    /* Reduced margin */
+    font-size: 16px;
+    /* Increased size slightly */
+}
+
+.status {
+    flex: 1;
+    text-align: center;
+    background-color: #e8f5e9;
+    padding: 8px 0;
+    cursor: pointer;
+    margin: 0 5px;
+    /* Space between statuses */
+    white-space: nowrap;
+    /* Prevent line break */
+}
+
+.status.active {
+    border-bottom: 2px solid #4CAF50;
+    /* Active status indicator */
+    color: black;
+}
+
+.status.inactive {
+    color: black;
+}
+
+.product-content {
+    display: flex;
+    flex-direction: column;
+    /* Stack items vertically */
+    position: relative;
+    /* Needed for absolute positioning if needed */
+}
+
+.three-dots-container {
+    position: absolute;
+    /* Position it absolutely */
+    top: 10px;
+    /* Adjust as necessary */
+    right: 10px;
+    /* Adjust as necessary */
+    z-index: 1;
+    /* Ensure it appears above other elements */
+}
+
+.product-buttons {
+    display: flex;
+    flex-direction: line;
+    border-radius: 50px;
+}
+
+.product-button {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    width: 120px;
+    margin-left: 20px;
+    border-radius: 50px;
+    border: 2px solid #4CAF50;
+    height: 10px;
+    line-height: 0.5;
+}
+
+.product-button:hover {
+    background-color: #45a049;
+    /* Darker green on hover */
+}
+
+.product-img-r {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #6B8E4E;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-right: 10px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+/* Hide elements initially */
+.hidden {
+    display: none;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complete</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+
+    .image-container {
+      padding: 30px 0 20px 0;
+      width: 90%;
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+    }
+
+    img {
+      width: 85%; 
+    }
+
+    h2 {
+      text-align: left;
+      margin-top: 40px;
+      margin-right: 100px;
+    }
+
+    button {
+      background-color: #6b8e42;
+      color: white;
+      width: 250px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+      margin-top: 30px;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+  <script>
+    function updateContentBasedOnSource() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const page = urlParams.get('page');
+      const header = document.getElementById('header-text');
+      const image = document.getElementById('image');
+
+      if (page === 'select-character') {
+        header.innerHTML = "WELCOME<br>OUR FAMILY!";
+        image.src = "../../img/complete1.png"; 
+      } else {
+        header.innerHTML = "SUCCESS<br>CHANGE&nbsp;&nbsp;P/W!";
+        image.src = "../../img/complete2.png";
+      } 
+    }
+
+    function navigateToLogin() {
+      window.location.href = 'log-in.html'; 
+    }
+  </script>
+</head>
+<body onload="updateContentBasedOnSource()">
+  <div class="image-container">
+    <img id="image" src="" alt="complete">
+  </div>
+  <div>
+    <h2 id="header-text"></h2>
+  </div>
+  <div class="button-container">
+    <button onclick="navigateToLogin()">GET STARTED!</button>
+  </div>
+</body>
+</html>

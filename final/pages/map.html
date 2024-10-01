@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>map</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap');
+  </style>
+  <link rel="stylesheet" href="/css/top-style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/progress.css">
+  <link rel="stylesheet" href="/css/map.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+</head>
+<body>
+  <header>
+    <div class="menu-bar" id="menuIcon">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+    <div class="logo">
+      <p class="playwrite-cu">CarbonCare</p>    
+    </div>
+    <div class="side">
+      <i class="fa-regular fa-heart"></i>
+      <i class="fa-regular fa-bell"></i>
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <i class="fa-solid fa-gear"></i>
+    </div>
+    <nav class="side-menu" id="sideMenu">
+      <ul>
+        <li>prize</li>
+        <li>transport</li>
+        <li>carbon</li>
+        <li class="dropdown">
+          2nd-hand
+          <i class="fa-solid fa-chevron-down dropdown-icon"></i> <!-- 아이콘 추가 -->
+          <ul class="dropdown-menu">
+            <li><a href="#">Record Buyer</a></li>
+            <li><a href="#">Record Seller</a></li>
+          </ul>
+        </li>
+        <li>activity</li>
+      </ul>
+    </nav>
+    
+  
+    <div class="overlay" id="overlay"></div> 
+    <script src="js/sidebar.js"></script>
+  </header>
+
+  <div id="map"></div>
+
+    <div class="info-box">
+      <div class="date-time">
+        <div>Time:2024/9/19</div>
+      </div>
+      <div class="location-info">
+          <div id="startingPoint-display"></div>
+          <div id="destination-display"></div>
+      </div>
+      <div class="additional-info">
+        <form>
+            <div class="info-item">
+                <span>Distance:</span> <span>2.5km</span>
+            </div>
+            <div class="info-item">
+                <span>Time:</span> <span>10M</span>
+            </div>
+            <div class="info-item">
+                <span>Carbon:</span> <span>50</span>
+            </div>
+        </form>
+    </div>
+    
+      <button class="history-btn" id="history-btn" >History</button>
+    </div>
+    
+  </div>
+
+
+    <script src="/js/map.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <script>
+          // 設置 Leaflet 地圖
+    const map = L.map('map').setView([24.970, 121.267], 13);
+
+    // 使用 OpenStreetMap 圖層
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // 添加地標標記
+    L.marker([24.970, 121.267]).addTo(map)
+        .bindPopup('Zhongyuan University');
+
+    L.marker([24.962, 121.245]).addTo(map)
+        .bindPopup('Xingren Park');
+    
+    </script>
+
+
+
+</body>

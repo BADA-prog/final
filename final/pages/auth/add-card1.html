@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/log-in.css">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-wrapper {
+            position: relative; 
+            width: 340px; 
+            height: 200px; 
+            align-items: center;
+        }
+
+        img {
+            width: 100%; 
+            transition: transform 0.6s, opacity 0.6s; }
+
+        .clicked {
+            transform: rotateY(360deg);
+            opacity: 0.5; 
+        }
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            position: absolute; 
+            top: 15%; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            visibility: hidden; 
+            z-index: 1;
+            background-color: transparent; 
+        }
+
+        .input-row {
+            display: flex;
+            justify-content: left;
+            margin: 5px ;
+            background-color: transparent; 
+        }
+
+        .form-input {
+            width: 20px;
+            height: 20px; 
+            font-size: 20px; 
+            text-align: center; 
+            border: 1px solid #111; 
+            border-radius: 5px; 
+            margin:  5px; 
+            background-color: #fff; 
+        }
+
+        .single-input {
+            width: 50px; 
+        }
+
+        .check-button {
+            margin-top: 10px;
+            padding: 5px 10px; 
+            background-color: green; 
+            color: #fff; 
+            border: none;
+            border-radius: 5px; 
+            cursor: pointer; 
+            visibility: hidden; 
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ADD EASY-CARD</h1>
+        <p>Create an account and save the earth!</p>
+    </div>
+
+    
+    <div class="card-wrapper">
+        <img src="../../img/card.png" alt="card" id="card-image">
+        <div class="input-container" id="input-container">
+           
+            <div class="input-row">
+                <input type="text" class="form-input" maxlength="1" required>
+                <input type="text" class="form-input" maxlength="1" required>
+                <input type="text" class="form-input" maxlength="1" required>
+            </div>
+
+            
+            <div class="input-row">
+                <input type="text" class="form-input" maxlength="1" required>
+                <input type="text" class="form-input" maxlength="1" required>
+                <input type="text" class="form-input" maxlength="1" required>
+                <input type="text" class="form-input" maxlength="1" required>
+                <input type="text" class="form-input" maxlength="1" required>
+                <input type="text" class="form-input" maxlength="1" required>
+            </div>
+
+            
+            <div class="input-row">
+                <input type="text" class="form-input" maxlength="1" required>
+            </div>
+
+            
+            <button class="check-button" id="check-button">CONFIRM</button>
+        </div>
+    </div>
+
+  
+
+    
+
+    <script>
+        const cardImage = document.getElementById('card-image');
+        const inputContainer = document.getElementById('input-container');
+        const formInputs = document.querySelectorAll('.form-input');
+        const checkButton = document.getElementById('check-button');
+
+        cardImage.addEventListener('click', () => {
+            cardImage.classList.toggle('clicked');
+            inputContainer.style.visibility = inputContainer.style.visibility === 'visible' ? 'hidden' : 'visible';
+            checkButton.style.visibility = 'hidden'; 
+        });
+
+        formInputs.forEach(input => {
+            input.addEventListener('input', checkInputs); 
+        });
+
+        function checkInputs() {
+            const allFilled = Array.from(formInputs).every(input => input.value.length === 1);
+            checkButton.style.visibility = allFilled ? 'visible' : 'hidden'; 
+        }
+
+        checkButton.addEventListener('click', () => {
+            const cardNumber = Array.from(formInputs).map(input => input.value).join('');
+            const url = 'add-card2.html?cardNumber=' + cardNumber; 
+            window.location.href = url; 
+        });
+    </script>
+</body>
+</html>

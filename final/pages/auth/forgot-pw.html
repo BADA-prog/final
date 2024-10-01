@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../../css/sign-up.css">
+    <link rel="stylesheet" href="../../css/forgot-pw.css">
+    <title>Password Recovery</title>
+    <script>
+        let recoveryMethod; // 복구 방법을 저장하는 변수
+
+        function showPage(page) {
+            // 모든 페이지 숨기기
+            document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+            // 선택한 페이지 보여주기
+            document.getElementById(page).style.display = 'block';
+        }
+
+        function nextPageWithEmail() {
+            const email = document.getElementById('email').value;
+            document.getElementById('email-display').textContent = email;
+            recoveryMethod = 'email'; // 복구 방법 설정
+            document.getElementById('check-method').textContent = 'Please check your email:';
+            showPage('page4'); // 확인 페이지 보여주기
+        }
+
+        function nextPageWithPhone() {
+            const phone = document.getElementById('phone').value;
+            document.getElementById('phone-display').textContent = phone;
+            recoveryMethod = 'phone'; // 복구 방법 설정
+            document.getElementById('check-method').textContent = 'Please check your phone:';
+            showPage('page4'); // 확인 페이지 보여주기
+        }
+
+        function verifyCode() {
+            const code = [...document.querySelectorAll('.verification-code')]
+                .map(input => input.value)
+                .join('');
+            // 코드 검증 로직
+            if (code === "1234") {
+                showPage('page5'); // 새 비밀번호 페이지 보여주기
+            } else {
+                alert('Invalid code. Please try again.');
+            }
+        }
+
+        function submitNewPassword() {
+    const newPassword = document.getElementById('new-password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+    if (newPassword === confirmPassword) {
+        alert('Password changed successfully!'); // 실제 제출 로직으로 대체
+        window.location.assign('complete.html?page=forgot-pw'); // 완료 페이지로 리다이렉트
+    } else {
+        alert('Passwords do not match. Please try again.');
+    }
+}
+
+
+        function resendCode() {
+            alert('Verification code resent to your email/phone!');
+        }
+
+        // 기본적으로 첫 페이지 보여주기
+        window.onload = () => showPage('page1');
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Page 1: Select Method -->
+        <div id="page1" class="page">
+            <h1>Forgot Password</h1>
+            <p>How to recover your password?</p>
+            <button onclick="showPage('page3')" class="icon-button">
+                <i class="fa-regular fa-envelope"></i>E-mail
+            </button>
+            <button onclick="showPage('page2')" class="icon-button">
+                <i class="fa-solid fa-phone"></i>Phone
+            </button>
+        </div>
+
+        <!-- Page 2: Phone Recovery -->
+        <div id="page2" class="page" style="display:none;">
+            <h1>Phone Recovery</h1>
+            <p>Please enter your phone number:</p>
+            <input type="tel" id="phone" class="form-input" required>
+            <button onclick="nextPageWithPhone()">Send Verification Code</button>
+            <div class="direction">
+                <div class="left">
+                    <button onclick="showPage('page1')"><i class="fa-solid fa-angle-left"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 3: E-mail -->
+        <div id="page3" class="page" style="display:none;">
+            <h1>Enter Your Email</h1>
+            <label for="email">Email:</label>
+            <input type="email" id="email" class="form-input" required>
+            <button onclick="nextPageWithEmail()">Send Verification Code</button>
+            <div class="direction">
+                <div class="left">
+                    <button onclick="showPage('page1')"><i class="fa-solid fa-angle-left"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 4: Confirm E-mail or Phone -->
+        <div id="page4" class="page" style="display:none;">
+            <h1>Verification</h1>
+            <p id="check-method">Please check your:</p>
+            <span id="email-display" style="font-weight: bold;"></span>
+            <span id="phone-display" style="font-weight: bold;"></span>
+            <div class="code">
+                <input type="text" class="verification-code form-input" maxlength="1" required>
+                <input type="text" class="verification-code form-input" maxlength="1" required>
+                <input type="text" class="verification-code form-input" maxlength="1" required>
+                <input type="text" class="verification-code form-input" maxlength="1" required>
+            </div>
+            <div class="exception" onclick="resendCode();">
+                <p>Didn't receive a code? <span style="color: seagreen; font-weight: bold;">RESEND</span></p>
+            </div>
+            <button onclick="verifyCode()">Verify Code</button>
+            <button onclick="showPage('page3')">Back</button>
+        </div>
+
+        <!-- Page 5: New Password -->
+        <div id="page5" class="page" style="display:none;">
+            <h1>Create New Password</h1>
+            <label for="new-password">New Password:</label>
+            <input type="password" id="new-password" class="form-input" required>
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" class="form-input" required>
+            <button onclick="submitNewPassword()">Submit</button>
+            <button onclick="showPage('page4')">Back</button>
+            <a href="complete.html?page=forgot-pw"> ₍՞ • 🐽 • ՞₎</a>
+        </div>
+    </div>
+</body>
+</html>

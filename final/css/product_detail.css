@@ -1,0 +1,188 @@
+/* General styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Main content styles */
+.main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    /* Center the content */
+}
+
+/* Image Slider */
+.image-slider {
+    position: relative;
+    width: 100%;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slide {
+    width: 100%;
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 300px;
+}
+
+.slide img {
+    width: 100%;
+    height: 300px;
+    /* Adjust this height as needed */
+    object-fit: cover;
+    /* Maintain aspect ratio and cover the container */
+}
+
+/* Navigation Buttons */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 6px;
+    z-index: 1;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+/* Carousel Indicators */
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.carousel-indicator {
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.carousel-indicator.active {
+    background-color: #6B8E4E;
+}
+
+/* Seller Profile */
+.seller-profile {
+    display: flex;
+    align-items: center;
+    margin: 16px 0;
+}
+
+.seller-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+.seller-info {
+    flex: 1;
+}
+
+.seller-name {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.seller-location,
+.seller-rating {
+    color: #6B8E4E;
+    font-size: 12px;
+}
+
+/* Product Description */
+.product-description {
+    color: #6B8E4E;
+    margin-bottom: 16px;
+}
+
+.description-title {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.description-time {
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.description-details {
+    font-size: 17px;
+}
+
+/* Fixed Action Container */
+.fixed-action {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #6B8E4E;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 20px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+.fixed-action .price {
+    font-size: 16px;
+}
+
+.fixed-action .pchat-btn {
+    background-color: white;
+    color: #6B8E4E;
+    padding: 6px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-left: 10px;
+    flex-shrink: 0;
+    max-width: 150px;
+    box-sizing: border-box;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.fixed-action .pchat-btn:hover {
+    opacity: 0.8;
+}
+
+.fixed-action i {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Like button */
+.fa-heart.liked {
+    color: red;
+}
+
+/*back button*/
+.back-button {
+    font-size: 24px;
+    text-decoration: none;
+    color: #333;
+}

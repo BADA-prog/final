@@ -1,0 +1,91 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 90%;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  position: relative; 
+  
+}
+
+label {
+  font-weight: bold; 
+  font-size: 20px;
+  display: block;
+  margin-top: 25px; 
+}
+
+.error-message {
+  padding-left: 20px;
+  color: red; 
+  font-size: 12px; 
+}
+
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 90%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: lightgray; 
+}
+
+
+button {
+  width: 100px; 
+  height: 40px; 
+  border: none; 
+  background-color: white; 
+}
+
+.code {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; }
+
+.code .form-input {
+  width: 30px; 
+  height: 30px; 
+  font-size: 20px; 
+  text-align: center; 
+  border-radius: 10px; 
+  background-color: lightgray;
+  margin-right: 20px;
+}
+
+.code .form-input:last-child {
+  margin-right: 0; 
+}
+
+.direction {
+  width: 100%;
+  position: fixed; 
+  bottom: 20px; 
+  left: -10px; 
+  right: 10px; 
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 10px;
+}
+
+.direction button {
+  font-size: 22px; 
+  background-color: white; 
+  border: none;
+  margin: 0 10px; }
+
+.direction .left {
+  flex: 0;
+}
+
+.direction .right {
+  flex: 1; 
+  text-align: right; 
+}

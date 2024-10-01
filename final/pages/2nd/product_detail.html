@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Product Detail</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../css/product_detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="main">
+        <a href="shop_home.html"><i class="fa-solid fa-xmark"></i></a>
+        <!-- Image Slider -->
+        <div class="image-slider">
+            <div class="product">
+                <button class="nav-btn prev" onclick="prevSlide()"><i class="fa-solid fa-angle-left"></i></button>
+                <div class="slider-container">
+                    <!-- Images will be dynamically inserted here -->
+                </div>
+                <!-- Carousel Indicators -->
+                <div class="carousel-indicators" id="carousel-indicators"></div>
+                <button class="nav-btn next" onclick="nextSlide()"><i class="fa-solid fa-angle-right"></i></button>
+            </div>
+        </div>
+
+        <!-- Seller Profile -->
+        <div class="seller-profile">
+            <img src="" alt="Seller" class="seller-img" id="seller-img">
+            <div class="seller-info">
+                <p class="seller-name" id="seller-name"></p>
+                <p class="seller-location" id="seller-location"></p>
+                <p class="seller-rating" id="seller-rating"></p>
+            </div>
+        </div>
+
+        <!-- Product Description -->
+        <div class="product-description">
+            <p class="description-title" id="description-title"></p>
+            <p class="description-time" id="description-time"></p>
+            <p class="description-details" id="description-details"></p>
+        </div>
+
+        <!-- Fixed Action Container -->
+        <div class="fixed-action">
+            <i class="fas fa-heart" id="like-icon" onclick="toggleLike(this)"></i>
+            <p class="price" id="price"></p>
+            <!-- Private Chat Button -->
+            <a href="#" class="pchat-btn" id="private-chat-btn">Private chat</a>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.slide');
+            const indicators = document.querySelectorAll('.carousel-indicator');
+
+            if (index >= slides.length) currentSlide = 0;
+            if (index < 0) currentSlide = slides.length - 1;
+
+            slides.forEach((slide, i) => {
+                slide.style.display = i === currentSlide ? 'block' : 'none';
+            });
+
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            showSlide(++currentSlide);
+        }
+
+        function prevSlide() {
+            showSlide(--currentSlide);
+        }
+
+        function toggleLike(element) {
+            element.classList.toggle('liked');
+        }
+
+        function loadProductDetails() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('product');
+
+            const productData = {
+                1: {
+                    images: [
+                        'https://cf-assets2.tenlong.com.tw/products/images/000/169/554/original/5919725.jpeg?1635412096',
+                        'https://th.bing.com/th/id/OIP.hKkLb4NA08WXNagJiL5yEQHaHa?rs=1&pid=ImgDetMain'
+                    ],
+                    sellerImg: 'https://shorturl.at/fiq6H',
+                    sellerName: 'Lee',
+                    sellerLocation: 'Taoyuan',
+                    sellerRating: 'L 4.2/5 (100)',
+                    title: 'Wanna sell JavaScript book~~',
+                    time: '40 min ago',
+                    details: 'I’m excited to offer a great JavaScript book that I’ve just used and found incredibly useful. Perfect for anyone looking to enhance their coding skills or dive into JavaScript for the first time. The book is in excellent condition, and I’m offering it at a fixed price—no adjustments needed. You can find me at the main entrance of Zhongyuan University, so come by, check it out, and grab a valuable resource for your programming journey!',
+                    price: '150 TWD'
+                },
+                2: {
+                    images: [
+                        'https://th.bing.com/th/id/OIP.zDPUiQckGizdBP2S8mu7NwHaKL?rs=1&pid=ImgDetMain',
+                        'https://th.bing.com/th/id/OIP.RGqZiA-uqOQFiqu6ocm6QwAAAA?rs=1&pid=ImgDetMain'
+                    ],
+                    sellerImg: 'https://th.bing.com/th/id/OIP.k7WeHGSO5cwkVDc7a2kOLgHaIW?w=153&h=180&c=7&r=0&o=5&dpr=1.1&pid=1.7',
+                    sellerName: 'Chen',
+                    sellerLocation: 'Taoyuan',
+                    sellerRating: 'L 4.5/5 (150)',
+                    title: 'For Sale: White Shirt',
+                    time: '3 hours ago',
+                    details: 'I’m selling this white shirt in great condition because it’s unfortunately too small for me. It’s made from high-quality fabric and features a classic cut that’s perfect for various occasions—whether dressing up or keeping it casual. The shirt is comfortable and stylish, and it’s ready to add a touch of sophistication to your wardrobe. If you’re interested, we can meet up near Zhongli Station. Don’t miss out on this chance to get a fantastic shirt at a great price!',
+                    price: '50 TWD'
+                },
+                3: {
+                    images: [
+                        'https://www.books.com.tw/img/001/094/21/0010942143.jpg',
+                        'https://taiwan-image.bookwalker.com.tw/product/155686/zoom_big_155686.jpg'
+                    ],
+                    sellerImg: 'https://www.bing.com/th?id=OIP.ir4fVRiU-txxn_-Om98QkwHaHl&w=146&h=149&c=8&rs=1&qlt=90&r=0&o=6&dpr=1.1&pid=3.1&rm=2',
+                    sellerName: 'Zhang',
+                    sellerLocation: 'Taipei',
+                    sellerRating: 'L 4.8/5 (200)',
+                    title: 'HTML Book 二手',
+                    time: '1 day ago',
+                    details: 'I’m offering a well-used HTML book for just $80. This book has been a valuable resource for learning and mastering HTML, and it’s packed with practical insights and examples. Despite some signs of previous use, it remains in good condition and is a great investment for anyone looking to enhance their web development skills. If you’re interested, we can arrange a meet-up near Zhongli Station. Don’t miss out on this opportunity to get a comprehensive HTML guide at a fantastic price!',
+                    price: '80 TWD'
+                },
+                4: {
+                    images: [
+                        'https://th.bing.com/th/id/OIP.LMQR5Afn1r8AAfK4pYbCRgHaHa?rs=1&pid=ImgDetMain',
+                        'https://th.bing.com/th/id/OIP.F7AegodHBuSlbtCHopfvfQAAAA?rs=1&pid=ImgDetMain'
+                    ],
+                    sellerImg: 'https://th.bing.com/th/id/OIP.tVtTpmn3R8EfZl6RGibwaQHaJ4?w=136&h=181&c=7&r=0&o=5&dpr=1.1&pid=1.7',
+                    sellerName: 'Han',
+                    sellerLocation: 'Taichung',
+                    sellerRating: 'L 4.6/5 (180)',
+                    title: 'Yellow Shirt Still Good',
+                    time: '1 month ago',
+                    details: 'Not my style anymore. Still in good condition, no stains or tears. Simple design, size M. Material is breathable cotton, good for casual wear. Selling because I’m clearing out my wardrobe. Meet-up near Zhongli Station. Price is fixed—no bargaining.',
+                    price: '100 TWD'
+                } /*,
+                5: {
+                    images: [
+                        'https://taiwan-image.bookwalker.com.tw/product/155686/zoom_big_155686.jpg',
+                    ],
+                    sellerImg: 'profile-img',
+                    sellerName: 'Me',
+                    sellerLocation: 'Taoyuan',
+                    sellerRating: 'L 4.7/5 (100)',
+                    title: '2nd HTML book',
+                    time: '1 month ago',
+                    details: 'Im selling an HTML book thats incredibly useful for second-year students. The book is in great condition and can help you easily grasp the fundamentals of web programming.Reason for Sale: My room is getting full, and I want to declutter items that are no longer useful. Im looking to sell this book quickly!.',
+                    price: '50 TWD'
+                }*/
+            };
+
+            const product = productData[productId];
+
+            if (product) {
+                const sliderContainer = document.querySelector('.slider-container');
+                sliderContainer.innerHTML = product.images.map(image => `<img src="${image}" alt="Product Image" class="slide">`).join('');
+
+                const indicatorsContainer = document.getElementById('carousel-indicators');
+                indicatorsContainer.innerHTML = product.images.map((_, index) => `<div class="carousel-indicator" onclick="showSlide(${index})"></div>`).join('');
+
+                showSlide(currentSlide);
+
+                document.getElementById('seller-img').src = product.sellerImg;
+                document.getElementById('seller-name').textContent = product.sellerName;
+                document.getElementById('seller-location').textContent = product.sellerLocation;
+                document.getElementById('seller-rating').textContent = product.sellerRating;
+
+                document.getElementById('description-title').textContent = product.title;
+                document.getElementById('description-time').textContent = product.time;
+                document.getElementById('description-details').textContent = product.details;
+                document.getElementById('price').textContent = product.price;
+
+                // Set the private chat button to use the seller's name
+                document.getElementById('private-chat-btn').setAttribute('onclick', `openChatRoom('${product.sellerName}')`);
+            } else {
+                console.error('Product not found');
+            }
+        }
+
+        loadProductDetails();
+
+        function openChatRoom(sellerName) {
+            window.location.href = `private_chat.html?user=${encodeURIComponent(sellerName)}`;
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,387 @@
+/* General styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+.header {
+    background-color: white;
+    color: blue;
+    padding: 10px;
+}
+
+.header nav a {
+    color: blue;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 20px;
+}
+
+.header nav a i {
+    color: blue;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.header-heart-icon {
+    color: blue;
+}
+
+.header nav a i:hover,
+.header nav a i:active {
+    color: blue;
+}
+*/
+.main {
+    padding: 20px;
+}
+
+/* Profile Section */
+.profile-section {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.profile-img-container {
+    position: relative;
+    display: flex;
+    /* Change to flex to align items properly */
+    flex-direction: column;
+    /* Arrange children vertically */
+    margin-right: 20px;
+    align-items: center;
+    /* Center items horizontally */
+}
+
+.profile-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.upload-btn {
+    background-color: #6B8E4E;
+    color: white;
+    padding: 5px 10px;
+    /* Adjust padding for smaller button size */
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    margin: 10px 0;
+    /* Margin to space it out */
+}
+
+.upload-btn:hover {
+    opacity: 0.8;
+}
+
+.profile-buttons .button {
+    background-color: #6B8E4E;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: block;
+    width: 56px;
+    /* Fixed width for all buttons */
+    height: 20px;
+}
+
+.profile-buttons .button:hover {
+    background-color: #4A6D3E;
+}
+
+/* Progress Bar Container */
+/*
+.progress-bar-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+    justify-content: center;
+}
+
+.progress-bar {
+    position: relative;
+    width: 100%;
+    height: 10px;
+    background-color: #ddd;
+}
+
+.progress-bar-fill {
+    position: absolute;
+    height: 100%;
+    background-color: #6B8E4E;
+    width: 50%;
+}
+*/
+/* Progress Bar Container */
+.progress-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    /* Add margin if needed for spacing */
+    width: 100%;
+    /* Remove bottom positioning to align it relative to the container */
+    padding-bottom: 0;
+    /* Adjust padding as needed */
+}
+
+.progress {
+    width: 200px;
+    /* Adjust width as needed */
+    height: 25px;
+    background: transparent;
+    border-radius: 12px;
+    /*border: 2px solid rgba(255, 255, 255, 0.5);*/
+    border: 2px solid green;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress::-webkit-progress-bar {
+    background: transparent;
+    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.progress::-webkit-progress-value {
+    /*background-image: linear-gradient(to right, #00f, #00aaff);*/
+    background: linear-gradient(to right, #6B8E42, #D4E2A4);
+    border-radius: 12px;
+    animation: wave 3s infinite;
+}
+
+@keyframes wave {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+.progress-icon {
+    width: 30px;
+    height: 30px;
+    border: 2px solid yellow;
+    border-radius: 50%;
+    background: white;
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    /* Adjust spacing between progress bar and icon */
+}
+
+.progress-icon img {
+    width: 20px;
+    height: auto;
+}
+
+
+/*Product style*/
+.product {
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    align-items: flex-start;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.product-content {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.product-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 1px solid #6B8E4E;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-right: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.product-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.product-details {
+    font-size: 16px;
+    padding: 10px;
+    /* Consistent padding */
+    text-align: left;
+}
+
+.product-details p {
+    margin: 5px 0;
+    /* Consistent margin */
+}
+
+/* Additional container to ensure alignment */
+.product-details-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Ensure all text aligns left */
+}
+
+.product a {
+    display: flex;
+    text-decoration: none;
+    color: inherit;
+}
+
+.product img {
+    display: block;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.like-container {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 10px;
+    margin-left: 0;
+}
+
+.product .fas.fa-heart {
+    font-size: 24px;
+    color: gray;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    margin-right: 8px;
+}
+
+.product .fas.fa-heart.liked {
+    color: red;
+}
+
+.like-count {
+    font-size: 16px;
+}
+
+/* Dropdown styles */
+.dropdown-1 {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #f9f9f9;
+    color: black;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content p {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content p:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown-1:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-1:hover .dropbtn {
+    background-color: #ddd;
+}
+
+.box {
+    margin-bottom: 10px;
+}
+
+/* Added Time Styling */
+.added-time {
+    font-size: 12px;
+    color: #666;
+    margin-top: 10px;
+    /* Space above the added time */
+}
+
+/*3dots*/
+.three-dots-container {
+    position: relative;
+    display: inline-block;
+}
+
+.three-dots-icon {
+    font-size: 20px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.three-dots-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.three-dots-option {
+    display: block;
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+}
+
+.three-dots-option:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show menu options when .show class is added */
+.three-dots-options.show {
+    display: block;
+}

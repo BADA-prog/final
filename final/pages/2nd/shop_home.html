@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Second Hand Shopping Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../css/shop_style.css">
+    <link rel="stylesheet" href="../../css/top-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!--<link rel="stylesheet" href="../../css/progress.css">-->
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap');
+
+        /* Ensure the whole product container is clickable */
+        .product a {
+            display: flex;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .product img {
+            display: block;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .product-details {
+            padding: 10px;
+            flex: 1;
+        }
+
+        .product-details p {
+            margin: 0;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <!--<iframe src="/final/index.html" title="Header"></iframe>-->
+            <div class="menu-bar" id="menuIcon">
+              <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="logo">
+              <p class="playwrite-cu">
+                <a href="/final/index.html">CarbonCare</a>
+              </p>    
+            </div>
+            
+            <div class="side">
+              <i class="fa-regular fa-heart"></i>
+              <i class="fa-regular fa-bell"></i>
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <a href="pages/setting/setting.html">
+                <i class="fa-solid fa-gear"></i>
+              </a>
+            </div>
+            
+            <nav class="side-menu" id="sideMenu">
+              <ul>
+                <li>prize</li>
+                <li>transport</li>
+                <li>carbon</li>
+                <li class="dropdown">
+                  2nd-hand
+                  <i class="fa-solid fa-chevron-down dropdown-icon"></i> <!-- 아이콘 추가 -->
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Record Buyer</a></li>
+                    <li><a href="#">Record Seller</a></li>
+                  </ul>
+                </li>
+                <li>activity</li>
+              </ul>
+            </nav>
+            
+          
+            <div class="overlay" id="overlay"></div> 
+            <script src="/final/js/sidebar.js"></script>
+          </header>
+
+    <div class="main">
+        <div class="box">
+            <div class="dropdown-1">
+                <button class="dropbtn"><i class="fa fa-map-marker-alt"></i> <span id="location">Location</span> <i class="fa fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <p onclick="selectLocation('Taoyuan')">Taoyuan</p>
+                    <p onclick="selectLocation('Taipei')">Taipei</p>
+                    <p onclick="selectLocation('Kaohsiung')">Kaohsiung</p>
+                    <p onclick="selectLocation('Taichung')">Taichung</p>
+                    <p onclick="selectLocation('Tainan')">Tainan</p>
+                    <p onclick="selectLocation('Taidong')">Taidong</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Section -->
+<div class="profile-section">
+    <div class="profile-img-container">
+        <img id="profile-img" src="https://www.pngkey.com/png/full/202-2024792_profile-icon-png.png" alt="Profile Image" class="profile-img">
+        <input type="file" id="upload-img" accept="image/*" onchange="previewImage(event)" class="upload-btn">
+        <!-- Progress Bar Container -->
+        <div class="progress-container">
+            <progress class="progress" id="progress" value="50" min="0" max="100"></progress>
+            <img src="../../img/icon/sunny.png" alt="icon" class="progress-icon">
+          </div>
+        <!--<div class="progress-bar-container">
+            <i class="fas fa-coins"></i>
+            <div class="progress-bar">
+                <div class="progress-bar-fill"></div>
+            </div>
+            </div>-->
+        </div>
+    <div class="profile-buttons">
+        <a href="shop_post.html" class="button">Post</a>
+        <a href="shop_chats.html" class="button">Chats</a>
+        <a href="shop_records.html" class="button">Records</a>
+    </div>
+</div>
+
+
+        <!-- Product list -->
+        <hr>
+        <!-- Product 1 -->
+<div class="product">
+    <a href="product_detail.html?product=1" class="product-link">
+        <div class="product-content">
+            <img src="https://cf-assets2.tenlong.com.tw/products/images/000/169/554/original/5919725.jpeg?1635412096" alt="Javascript Book" class="product-img">
+            <div class="product-info">
+                <div class="product-details">
+                    <div class="product-details-wrapper">
+                        <p>Javascript Book.</p>
+                        <p>Zhongbei rd.</p>
+                        <p>150 TWD.</p>
+                        <p class="added-time">40 min ago</p>
+                    </div></a>
+                    <div class="like-container">
+                        <i class="fas fa-heart" onclick="toggleLike(event)"></i>
+                        <span class="like-count">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="three-dots-container">
+                <div class="three-dots-icon" >
+                    &#x022EE; <!-- Unicode character for three dots -->
+                </div>
+                <div class="three-dots-options" id="threeDotsOptions">
+                    <a href="report.html" class="three-dots-option">Report</a>
+                </div>
+            </div> 
+        </div>
+</div>
+<hr>
+
+<!-- Product 2 -->
+<div class="product">
+    <a href="product_detail.html?product=2" class="product-link">
+        <div class="product-content">
+            <img src="https://th.bing.com/th/id/OIP.zDPUiQckGizdBP2S8mu7NwHaKL?rs=1&pid=ImgDetMain" alt="White Shirt" class="product-img">
+            <div class="product-info">
+                <div class="product-details">
+                    <div class="product-details-wrapper">
+                        <p>White Shirt Good</p>
+                        <p>Zhongbei rd.</p>
+                        <p>50 TWD.</p>
+                        <p class="added-time">3 hours ago</p>
+                    </div></a>
+                    <div class="like-container">
+                        <i class="fas fa-heart" onclick="toggleLike(event)"></i>
+                        <span class="like-count">0</span>
+                    </div>
+                </div>
+            </div> 
+            <div class="three-dots-container">
+                <div class="three-dots-icon">
+                    &#x022EE; <!-- Unicode character for three dots -->
+                </div>
+                <div class="three-dots-options" id="threeDotsOptions">
+                    <a href="report.html" class="three-dots-option">Report</a>
+                </div>
+            </div> 
+        </div>
+</div>
+<hr>
+
+<!-- Product 3 -->
+<div class="product">
+    <a href="product_detail.html?product=3" class="product-link">
+        <div class="product-content">
+            <img src="https://www.books.com.tw/img/001/094/21/0010942143.jpg" alt="HTML Book" class="product-img">
+            <div class="product-info">
+                <div class="product-details">
+                    <div class="product-details-wrapper">
+                        <p>HTML book 二手.</p>
+                        <p>Zhongbei rd.</p>
+                        <p>80 TWD.</p>
+                        <p class="added-time">1 day ago</p>
+                    </div></a>
+                    <div class="like-container">
+                        <i class="fas fa-heart" onclick="toggleLike(event)"></i>
+                        <span class="like-count">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="three-dots-container">
+                <div class="three-dots-icon">
+                    &#x022EE; <!-- Unicode character for three dots -->
+                </div>
+                <div class="three-dots-options">
+                    <a href="report.html" class="three-dots-option">Report</a>
+                </div>
+            </div> 
+        </div>
+</div>
+<hr>
+
+<!-- Product 4 -->
+<div class="product">
+    <a href="product_detail.html?product=4" class="product-link">
+        <div class="product-content">
+            <img src="https://th.bing.com/th/id/OIP.LMQR5Afn1r8AAfK4pYbCRgHaHa?rs=1&pid=ImgDetMain" alt="Yellow Shirt" class="product-img">
+            <div class="product-info">
+                <div class="product-details">
+                    <div class="product-details-wrapper">
+                        <p>Yellow shirt new.</p>
+                        <p>Zhongbei rd.</p>
+                        <p>100 TWD.</p>
+                        <p class="added-time">1 month ago</p>
+                    </div></a>
+                    <div class="like-container">
+                        <i class="fas fa-heart" onclick="toggleLike(event)"></i>
+                        <span class="like-count">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="three-dots-container">
+                <div class="three-dots-icon" >
+                    &#x022EE; <!-- Unicode character for three dots -->
+                </div>
+                <div class="three-dots-options" id="threeDotsOptions">
+                    <a href="report.html" class="three-dots-option">Report</a>
+                </div>
+            </div> 
+        </div>
+</div>
+<hr>
+<!-- Product 5 my product--> 
+<!--<div class="product">
+    <a href="product_detail.html?product=5" class="product-link">
+        <div class="product-content">
+            <img src="https://www.books.com.tw/img/001/094/21/0010942143.jpg" alt="HTML Book" class="product-img">
+            <div class="product-info">
+                <div class="product-details">
+                    <div class="product-details-wrapper">
+                        <p>2nd HTML book.</p>
+                        <p>Zhongbei rd.</p>
+                        <p>50 TWD.</p>
+                        <p class="added-time">1 month ago</p>
+                    </div></a>
+                    <div class="like-container">
+                        <i class="fas fa-heart" onclick="toggleLike(event)"></i>
+                        <span class="like-count">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="three-dots-container">
+                <div class="three-dots-icon">
+                    &#x022EE; 
+                </div>
+                <div class="three-dots-options">
+                    <a href="report.html" class="three-dots-option">Report</a>
+                </div>
+            </div> 
+        </div>
+</div>
+
+    <hr>    -->
+    </div>
+
+    <script src="../../js/shop_home.js"></script>
+</body>
+</html>

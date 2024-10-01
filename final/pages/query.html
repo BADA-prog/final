@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>query</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap');
+  </style>
+  <link rel="stylesheet" href="/css/top-style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/progress.css">
+  <link rel="stylesheet" href="/css/query.css">
+
+  </head>
+<body>
+  <header>
+    <div class="menu-bar" id="menuIcon">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+    <div class="logo">
+      <p class="playwrite-cu">CarbonCare</p>    
+    </div>
+    <div class="side">
+      <i class="fa-regular fa-heart"></i>
+      <i class="fa-regular fa-bell"></i>
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <i class="fa-solid fa-gear"></i>
+    </div>
+    <nav class="side-menu" id="sideMenu">
+      <ul>
+        <li>prize</li>
+        <li>transport</li>
+        <li>carbon</li>
+        <li class="dropdown">
+          2nd-hand
+          <i class="fa-solid fa-chevron-down dropdown-icon"></i> <!-- 아이콘 추가 -->
+          <ul class="dropdown-menu">
+            <li><a href="#">Record Buyer</a></li>
+            <li><a href="#">Record Seller</a></li>
+          </ul>
+        </li>
+        <li>activity</li>
+      </ul>
+    </nav>
+    
+  
+    <div class="overlay" id="overlay"></div> 
+    <script src="js/sidebar.js"></script>
+  </header>
+
+
+    <main class="body">
+        <div class="button-container">
+            <!-- 查詢按鈕 -->
+            <button class="query-button">Query <br> carbon emissions</button>
+            
+            <!-- 預訂票務按鈕及下拉菜單 -->
+            <div class="booking-container">
+                <button class="booking-button">Book tickets</button>
+                <div class="booking-dropdown">
+                    <a href="https://order.kingbus.com.tw/ORD/ORD_Q_1530_ViewSchedule.aspx">Bus</a>
+                    <a href="https://www.railway.gov.tw/tra-tip-web/tip/tip001/tip123/query">Train</a>
+                    <a href="https://irs.thsrc.com.tw/IMINT/">High-Speed Rail</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="query-popup" id="queryPopup">
+          <div class="popup-content">
+              <form id="query-form" onsubmit="saveData(event)">
+                  <span class="close-btn" id="closePopup">&times;</span><br>
+                  <label for="starting-point" >Departure:</label><br>
+                  <input type="text" id="starting-point" name="starting-point" required><br>
+                  <label for="destination">Destination:</label><br>
+                  <input type="text" id="destination" name="destination" required><br><br>
+                  <button type="submit">Definite</button>
+              </form>
+          </div>
+      </div>
+    </main>
+    <script src="/js/query.js"></script>
+</body>
